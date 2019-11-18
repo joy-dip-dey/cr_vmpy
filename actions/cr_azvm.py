@@ -2,9 +2,13 @@ import os.path
 from deployer import Deployer
 
 class MyAction(Action):
-    def run(self, p_tenant_id, p_client_id, p_client_secret, p_subs_id, p_resource_group):
+    def run(self, p_tenant_id, p_client_id, p_client_secret, p_subs_id, p_resource_group, p_client_id, p_secret_id, p_tenant_id):
 
         my_subscription_id = p_subs_id
+
+        my_client_id = p_client_id
+        my_secret_id = p_secret_id 
+        my_tenant_id = p_tenant_id
 
 # the resource group for deployment
         my_resource_group = p_resource_group
@@ -18,7 +22,7 @@ class MyAction(Action):
         print(msg)
         input('press enter : ')
 # Initialize the deployer class
-        deployer = Deployer(my_subscription_id, my_resource_group, my_pub_ssh_key_path)
+        deployer = Deployer(my_subscription_id, my_resource_group, my_pub_ssh_key_path, my_client_id, my_secret_id, my_tenant_id)
         print("Beginning the deployment... \n\n")
 # Deploy the template
         my_deployment = deployer.deploy()
