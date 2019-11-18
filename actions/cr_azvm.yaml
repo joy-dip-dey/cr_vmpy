@@ -4,7 +4,7 @@ pack: work_with_azure_pack
 runner_type: "python-script"
 description: Create and Deploys a VM on azure using python
 enabled : true
-entry_point : crazvm.py
+entry_point : cr_azvm.py
 
 parameters:
   tenant_id :
