@@ -2,12 +2,12 @@ import os.path
 from deployer import Deployer
 
 class MyAction(Action):
-    def run(self, p_tenant_id, p_client_id, p_client_secret, p_subs_id, p_resource_group, p_client_id, p_secret_id, p_tenant_id):
+    def run(self, p_tenant_id, p_client_id, p_client_secret, p_subs_id, p_resource_group):
 
         my_subscription_id = p_subs_id
 
         my_client_id = p_client_id
-        my_secret_id = p_secret_id 
+        my_secret_id = p_client_secret
         my_tenant_id = p_tenant_id
 
 # the resource group for deployment
