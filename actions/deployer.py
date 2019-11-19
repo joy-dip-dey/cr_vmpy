@@ -16,7 +16,7 @@ class Deployer(object):
     """
     name_generator = Haikunator()
 
-    def __init__(self, subscription_id, resource_group, pub_ssh_key_path='~/.ssh/id_rsa.pub', p_client, p_secret, p_tenant):
+    def __init__(self, subscription_id, resource_group, p_client, p_secret, p_tenant, pub_ssh_key_path='~/.ssh/id_rsa.pub'):
         self.subscription_id = subscription_id
         self.resource_group = resource_group
         self.dns_label_prefix = self.name_generator.haikunate()
@@ -27,8 +27,8 @@ class Deployer(object):
         with open(pub_ssh_key_path, 'r') as pub_ssh_file_fd:
              self.pub_ssh_key = pub_ssh_file_fd.read()
 
-        print (self.pub_ssh_key)
-        print('Press Enter SSH : ')
+#        print (self.pub_ssh_key)
+#        print('Press Enter SSH : ')
 
         self.credentials = ServicePrincipalCredentials(
             client_id = p_client,   #'fd8b4579-715d-4e07-a373-d490d57f6634',      #os.environ['AZURE_CLIENT_ID'],
@@ -58,8 +58,8 @@ class Deployer(object):
                      }
         parameters = {k: {'value': v} for k, v in parameters.items()}
 
-        print (parameters.items())
-        input('press enter : ') 
+        #print (parameters.items())
+        #input('press enter : ') 
         deployment_properties = {
             'mode': DeploymentMode.incremental,
             'template': template,

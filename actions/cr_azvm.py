@@ -22,7 +22,7 @@ class MyAction(Action):
         print(msg)
         input('press enter : ')
 # Initialize the deployer class
-        deployer = Deployer(my_subscription_id, my_resource_group, my_pub_ssh_key_path, my_client_id, my_secret_id, my_tenant_id)
+        deployer = Deployer(my_subscription_id, my_resource_group, my_client_id, my_secret_id, my_tenant_id, my_pub_ssh_key_path)
         print("Beginning the deployment... \n\n")
 # Deploy the template
         my_deployment = deployer.deploy()
